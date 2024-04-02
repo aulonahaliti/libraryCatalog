@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Catalog </title>
+</head>
+<body>
+    
+    <script>
+
+        // Klasa per Librin
+        function Book(title, author, pages) {
+
+            this.title = title;
+            this.author = author;
+            this.pages = pages;
+        }
+
+// Metoda me i qit detajet per librin
+        Book.prototype.displayDetails = function() {
+            console.log("Title" + this.title);
+            console.log("Author " + this.author);
+            console.log("Pages " + this.pages);
+        }
+
+        // Klasa per librari
+        function Library() {
+            this.books = [];
+        }
+
+        // Metoda me u shtu librat ne librari
+        Library.prototype.addBook = function (book) {
+            this.books.push(book);
+        }
+
+        // Metoda me i qit krejt librat ne librari edhe me i shfaq.
+        Library.prototype.displayBooks = function (){
+            console.log("Librat qe jane avbailable ne librari");
+            for(var i = 0; i < this.books.length; i++){
+                console.log("Book" + (i + 1) + ":");
+                this.books[i].displayDetails();
+            }
+        }
+
+        
+        // Krijimi i objektit te librarise
+
+        var library = new Library();
+
+        // Krijimi i objekteve
+        var book1 = new Book(" Think and Grow Rich", "Napoleon Hill", 180);
+        var book2 = new Book(" It ends with us", "Colleen Hoover", 579)
+        var book3 = new Book(" Malesorja", "Nazmi Rrahmani", 450);
+        var book4 = new Book(" Prilli i thyer", "Ismail Kadare", 200);
+
+
+        // I kena vendos te dhenat ne liber
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+        library.addBook(book4);
+
+        // Me dal krejt te dhenat
+        library.displayBooks();
+
+
+
+    </script>
+
+</body>
+</html>
